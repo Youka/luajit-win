@@ -76,7 +76,7 @@ buildvm -m folddef -o lj_folddef.h lj_opt_fold.c
 @if errorlevel 1 goto :BAD
 @goto :MTDLL
 :STATIC
-%LJCOMPILE% lj_*.c lib_*.c
+%LJCOMPILE% /MD lj_*.c lib_*.c
 @if errorlevel 1 goto :BAD
 %LJLIB% /OUT:%LJLIBNAME% lj_*.obj lib_*.obj
 @if errorlevel 1 goto :BAD
@@ -90,7 +90,7 @@ buildvm -m folddef -o lj_folddef.h lj_opt_fold.c
 if exist %LJDLLNAME%.manifest^
   %LJMT% -manifest %LJDLLNAME%.manifest -outputresource:%LJDLLNAME%;2
 
-%LJCOMPILE% luajit.c
+%LJCOMPILE% /MD luajit.c
 @if errorlevel 1 goto :BAD
 %LJLINK% /out:luajit.exe luajit.obj %LJLIBNAME%
 @if errorlevel 1 goto :BAD

@@ -20,6 +20,8 @@
 #include "lj_err.h"
 #include "lj_lib.h"
 
+#include "win_io.h"
+
 #if LJ_TARGET_POSIX
 #include <unistd.h>
 #else

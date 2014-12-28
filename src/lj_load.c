@@ -23,6 +23,8 @@
 #include "lj_bcdump.h"
 #include "lj_parse.h"
 
+#include "win_io.h"
+
 /* -- Load Lua source code and bytecode ----------------------------------- */
 
 static TValue *cpparser(lua_State *L, lua_CFunction dummy, void *ud)

@@ -31,6 +31,8 @@
 #include "lj_vmevent.h"
 #include "lj_target.h"
 
+#include "win_io.h"
+
 /* -- Error handling ------------------------------------------------------ */
 
 /* Synchronous abort with error message. */

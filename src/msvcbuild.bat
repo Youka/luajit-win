@@ -22,7 +22,7 @@
 @set DASM=%DASMDIR%\dynasm.lua
 @set LJDLLNAME=lua51.dll
 @set LJLIBNAME=lua51.lib
-@set ALL_LIB=lib_base.c lib_math.c lib_bit.c lib_string.c lib_table.c lib_io.c lib_os.c lib_package.c lib_debug.c lib_jit.c lib_ffi.c
+@set ALL_LIB=lib_base.c lib_math.c lib_bit.c lib_string.c lib_table.c lib_io.c lib_os.c lib_package.c lib_debug.c lib_jit.c lib_ffi.c win_io.c
 
 %LJCOMPILE% host\minilua.c
 @if errorlevel 1 goto :BAD
@@ -70,15 +70,15 @@ buildvm -m folddef -o lj_folddef.h lj_opt_fold.c
 :NODEBUG
 @if "%1"=="amalg" goto :AMALGDLL
 @if "%1"=="static" goto :STATIC
-%LJCOMPILE% /MD /DLUA_BUILD_AS_DLL lj_*.c lib_*.c
+%LJCOMPILE% /MD /DLUA_BUILD_AS_DLL lj_*.c lib_*.c win_io.c
 @if errorlevel 1 goto :BAD
-%LJLINK% /DLL /out:%LJDLLNAME% lj_*.obj lib_*.obj
+%LJLINK% /DLL /out:%LJDLLNAME% lj_*.obj lib_*.obj win_io.obj
 @if errorlevel 1 goto :BAD
 @goto :MTDLL
 :STATIC
-%LJCOMPILE% /MD lj_*.c lib_*.c
+%LJCOMPILE% /MD lj_*.c lib_*.c win_io.c
 @if errorlevel 1 goto :BAD
-%LJLIB% /OUT:%LJLIBNAME% lj_*.obj lib_*.obj
+%LJLIB% /OUT:%LJLIBNAME% lj_*.obj lib_*.obj  win_io.obj
 @if errorlevel 1 goto :BAD
 @goto :MTDLL
 :AMALGDLL

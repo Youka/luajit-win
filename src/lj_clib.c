@@ -17,6 +17,8 @@
 #include "lj_cdata.h"
 #include "lj_clib.h"
 
+#include "win_io.h"
+
 /* -- OS-specific functions ----------------------------------------------- */
 
 #if LJ_TARGET_DLOPEN

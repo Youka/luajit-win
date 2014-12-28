@@ -17,6 +17,8 @@
 #include "lj_err.h"
 #include "lj_lib.h"
 
+#include "win_io.h"
+
 /* ------------------------------------------------------------------------ */
 
 /* Error codes for ll_loadfunc. */

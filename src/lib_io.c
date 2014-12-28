@@ -24,6 +24,8 @@
 #include "lj_ff.h"
 #include "lj_lib.h"
 
+#include "win_io.h"
+
 /* Userdata payload for I/O file. */
 typedef struct IOFileUD {
   FILE *fp;		/* File handle. */
